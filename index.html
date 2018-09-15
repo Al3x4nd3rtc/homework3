@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>The Psychic Game</title>
-</head>
+</head> `
 
 <body>
 
@@ -22,32 +22,40 @@
 
     var wins = 0;
 	var losses = 0;
-    // var guesses = 0;
+    var guesses = 0;
 	var guessesLeft = 10;
 
 	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
 
-    console.log(computerChoice)
+    console.log("Computer Choice: " + computerChoice);
 
     document.onkeypress = function(event) {
         var userGuess = event.key;
-
+        console.log("User Guess: " + userGuess);
         if(userGuess === computerChoice){
             wins++;
-        }else{
-            guesses--;
+            guessesLeft = 10;
+            computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+            console.log("Computer Choice: " + computerChoice);
+
+        }
+        else{
+            guessesLeft--;
+        }
+        if(guessesLeft === 0){
+            losses++;
+            guessesLeft = 10;
+            computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+            console.log("Computer Choice: " + computerChoice);
         }
 
-        if(guesses === 0){
-            losses++
-        }
         function updateScore() {
         document.querySelector("#score").innerHTML = "Score: " + score;
         }
         
         document.getElementById('wins').innerHTML = "Wins: " + wins;
         document.getElementById('losses').innerHTML = "Losses: " + losses;
-        document.getElementById('guessesLeft').innerHTML = "Guesses left: " + guesses;
+        document.getElementById('guessesLeft').innerHTML = "Guesses left: " + guessesLeft;
     }
 </script>
 
