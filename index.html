@@ -1,0 +1,105 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The Psychic Game</title>
+</head>
+
+<body>
+
+  <h1>The Psychic Game</h1>
+  <p>Guess the letter I'm thinking of</p>
+
+  <p id="wins"></p>
+  <p id="losses"></p>
+  <p id="guessesLeft"></p>
+  <p id="yourGuesses"></p>
+ 
+  <script>
+  	var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l',
+    'm','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+    var wins = 0;
+	var losses = 0;
+    // var guesses = 0;
+	var guessesLeft = 10;
+
+	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+
+    console.log(computerChoice)
+
+    document.onkeypress = function(event) {
+        var userGuess = event.key;
+
+        if(userGuess === computerChoice){
+            wins++;
+        }else{
+            guesses--;
+        }
+
+        if(guesses === 0){
+            losses++
+        }
+        function updateScore() {
+        document.querySelector("#score").innerHTML = "Score: " + score;
+        }
+        
+        document.getElementById('wins').innerHTML = "Wins: " + wins;
+        document.getElementById('losses').innerHTML = "Losses: " + losses;
+        document.getElementById('guessesLeft').innerHTML = "Guesses left: " + guesses;
+    }
+</script>
+
+</body>
+
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The Psychic Game</title>
+</head>
+
+<body>
+
+  <h1>The Psychic Game</h1>
+  <p>Guess the letter I'm thinking of</p>
+
+  <p id="Win"></p>
+  <p id="Losses"></p>
+  <p id="Guesses Left"></p>
+  <p id="Your Guesses So Far"></p>
+
+  <script>
+  	var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l',
+    'm','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+    var Win = 0;
+	var Losses = 0;
+	var Guesses Left = 10;
+
+	 var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+
+    console.log(computerChoice)
+
+    document.onkeypress = function(event) {
+    var userGuess = event.key;
+
+    if(userGuess === computerChoice){
+        wins++;
+    }else{
+        guesses--;
+    }
+
+    if(guesses === 0){
+        losses++
+    }
+     function updateScore() {
+      document.querySelector("#score").innerHTML = "Score: " + score;
+    }
+  </script>
+>>>>>>> f125ca4ae3c806e0935b55f0c6a1a207b4ecd32a
